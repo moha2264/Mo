@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شركة تطوير المواقع والتطبيقات للمشاريع الصغيرة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8faff;
+            color: #1e2a41;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: #0b1a33;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: #4fc3f7;
+        }
+
+        .logo span {
+            color: #4fc3f7;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e0f2fe;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 1.05rem;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            color: white;
+            border-bottom-color: #4fc3f7;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(145deg, #0b1a33 0%, #1a345a 100%);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 3rem;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1 1 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-text h1 i {
+            color: #4fc3f7;
+            margin-left: 10px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #4fc3f7;
+            color: #0b1a33;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+            transition: 0.3s;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #81d4fa;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(79, 195, 247, 0.4);
+        }
+
+        .hero-image {
+            flex: 1 1 300px;
+            text-align: center;
+            font-size: 8rem;
+            color: #4fc3f7;
+            opacity: 0.9;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* SERVICES */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #4fc3f7;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: 0.4s;
+            text-align: center;
+            border: 1px solid rgba(79, 195, 247, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(11, 26, 51, 0.08);
+            border-color: #4fc3f7;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #0b1a33;
+            background: #e3f2fd;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            transition: 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: #4fc3f7;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: #3e4a5e;
+        }
+
+        /* TEAM SECTION */
+        .team {
+            background: white;
+            padding: 3rem 0;
+            border-radius: 40px;
+            margin: 2rem 0 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: #f8faff;
+            border-radius: 24px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .team-card:hover {
+            border-color: #4fc3f7;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(79, 195, 247, 0.08);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #0b1a33;
+            color: #4fc3f7;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: 0.3s;
+        }
+
+        .team-card:hover .team-avatar {
+            background: #4fc3f7;
+            color: #0b1a33;
+        }
+
+        .team-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-card .role {
+            color: #4fc3f7;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+            padding: 3rem 0;
+            border-radius: 40px;
+            margin: 2rem 0 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .about .container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1 1 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            color: #1e2a41;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0b1a33;
+            display: block;
+        }
+
+        .stat-label {
+            color: #4fc3f7;
+            font-weight: 600;
+        }
+
+        .about-image {
+            flex: 1 1 300px;
+            text-align: center;
+            font-size: 7rem;
+            color: #0b1a33;
+            background: #e3f2fd;
+            padding: 2rem;
+            border-radius: 40px;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: #0b1a33;
+            color: white;
+            padding: 3rem 0;
+            border-radius: 40px;
+            margin: 2rem 0 3rem;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+        .testimonials .section-title::after {
+            background: #4fc3f7;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.8rem;
+            border-radius: 24px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .testimonial-card i {
+            color: #4fc3f7;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: #4fc3f7;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: white;
+            padding: 3rem 0;
+            border-radius: 40px;
+            margin: 2rem 0 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem 1.5rem;
+            border: 1px solid #dce3ef;
+            border-radius: 40px;
+            font-size: 1rem;
+            transition: 0.3s;
+            background: #f8faff;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #4fc3f7;
+            box-shadow: 0 0 0 4px rgba(79, 195, 247, 0.15);
+        }
+
+        .contact-form textarea {
+            min-height: 140px;
+            resize: vertical;
+            border-radius: 24px;
+        }
+
+        .contact-form .btn {
+            align-self: center;
+            width: fit-content;
+            padding: 0.9rem 3.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0b1a33;
+            color: #b0c7e0;
+            padding: 2.5rem 0 1.5rem;
+            border-radius: 40px 40px 0 0;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #b0c7e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #4fc3f7;
+        }
+
+        .footer-social i {
+            font-size: 1.6rem;
+            margin-left: 1rem;
+            color: #b0c7e0;
+            transition: 0.3s;
+        }
+
+        .footer-social i:hover {
+            color: #4fc3f7;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e3455;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            nav.active {
+                display: flex;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .hero-image {
+                font-size: 5rem;
+            }
+            .about-image {
+                font-size: 4rem;
+                padding: 1.5rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i> Small<span>Dev</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="navbar">
+                <a href="#services">الخدمات</a>
+                <a href="#team">فريق العمل</a>
+                <a href="#about">من نحن</a>
+                <a href="#testimonials">آراء العملاء</a>
+                <a href="#contact">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>
+                    <i class="fas fa-rocket"></i> تطوير المواقع <br />والتطبيقات للمشاريع الصغيرة
+                </h1>
+                <p>نحول أفكارك إلى منصات رقمية احترافية، مصممة خصيصاً لتناسب احتياجات مشروعك الصغير.</p>
+                <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> اطلب عرض سعر</a>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container">
+        <h2 class="section-title">خدماتنا</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <h3>مواقع ويب</h3>
+                <p>تصميم وبرمجة مواقع متجاوبة وسريعة تعكس هوية علامتك التجارية.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>تطبيقات الجوال</h3>
+                <p>تطبيقات Android و iOS بتجربة مستخدم سلسة وأداء عالي لمشاريعك.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h3>متاجر إلكترونية</h3>
+                <p>منصات تجارة إلكترونية متكاملة مع بوابات دفع وإدارة مخزون.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>تحسين الأداء</h3>
+                <p>تحسين سرعة المواقع وتجربة المستخدم لزيادة التحويلات والمبيعات.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION - 10 Members with specified names -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">فريق العمل</h2>
+            <div class="team-grid">
+                <!-- 1 - المدير -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>محمد مشرف</h4>
+                    <span class="role">المدير التنفيذي</span>
+                </div>
+                <!-- 2 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>محمد صلاح</h4>
+                    <span class="role">مطور ويب أول</span>
+                </div>
+                <!-- 3 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>عباس معتمد</h4>
+                    <span class="role">مدير المشاريع</span>
+                </div>
+                <!-- 4 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>وائل عبدالمحسن</h4>
+                    <span class="role">مصمم واجهات UX/UI</span>
+                </div>
+                <!-- 5 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>لنا قسم الله</h4>
+                    <span class="role">مطورة تطبيقات جوال</span>
+                </div>
+                <!-- 6 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>سارة الفاتح</h4>
+                    <span class="role">مهندسة برمجيات</span>
+                </div>
+                <!-- 7 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>سيده أمير</h4>
+                    <span class="role">أخصائية تحسين أداء</span>
+                </div>
+                <!-- 8 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>ماب سامي</h4>
+                    <span class="role">مطور Backend</span>
+                </div>
+                <!-- 9 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>ام سلمة عصمت</h4>
+                    <span class="role">خبيرة أمن سيبراني</span>
+                </div>
+                <!-- 10 -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>وجدان قسم الله</h4>
+                    <span class="role">مسؤولة تسويق رقمي</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-text">
+                <h2>من نحن؟</h2>
+                <p>نحن فريق متخصص في تطوير المواقع والتطبيقات للمشاريع الصغيرة. نؤمن بأن كل مشروع يستحق منصة رقمية مميزة تعكس قيمته.</p>
+                <p>نعمل بأحدث التقنيات ونهتم بالتفاصيل لنقدم حلولاً مرنة وقابلة للتوسع تناسب ميزانيتك.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">مشروع منجز</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">رضا العملاء</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">تقييم متوسط</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-users-cog"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>“ساعدونا في إطلاق متجرنا الإلكتروني بسرعة واحترافية، الدعم والتواصل كان رائعاً.”</p>
+                    <span class="client-name">— أحمد، مشروع أزياء</span>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>“تطبيق الجوال الذي طوروه لنا غيّر طريقة تفاعل عملائنا مع خدماتنا، أنصح بهم بشدة.”</p>
+                    <span class="client-name">— سارة، منصة تعليمية</span>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>“فريق محترف يقدم حلولاً مبتكرة تناسب احتياجات المشاريع الصغيرة، شكراً لكم.”</p>
+                    <span class="client-name">— خالد، شركة ناشئة</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="الاسم الكامل" required />
+                <input type="email" placeholder="البريد الإلكتروني" required />
+                <input type="text" placeholder="رقم الهاتف" />
+                <textarea placeholder="تفاصيل مشروعك..."></textarea>
+                <button type="submit" class="btn"><i class="fas fa-envelope"></i> إرسال الطلب</button>
+            </form>
+            <p style="text-align:center; margin-top:1.5rem; color:#3e4a5e;">
+                <i class="fas fa-phone-alt" style="color:#4fc3f7;"></i> +966 50 000 0000 &nbsp;|&nbsp;
+                <i class="fas fa-envelope" style="color:#4fc3f7;"></i> info@smalldev.com
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fas fa-code"></i> SmallDev</h4>
+                    <p>حلول رقمية مخصصة للمشاريع الصغيرة، نصنع التميز من البداية.</p>
+                    <div class="footer-social">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <a href="#services">الخدمات</a>
+                    <a href="#team">فريق العمل</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#testimonials">آراء العملاء</a>
+                    <a href="#contact">اتصل بنا</a>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</p>
+                    <p><i class="fas fa-phone"></i> +966 50 000 0000</p>
+                    <p><i class="fas fa-envelope"></i> info@smalldev.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SmallDev. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle mobile navigation
+        const toggleBtn = document.getElementById('navToggle');
+        const navbar = document.getElementById('navbar');
+
+        toggleBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Close nav on link click (for mobile)
+        document.querySelectorAll('#navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+
+        // Contact form submission (simple alert)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت.');
+            contactForm.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
